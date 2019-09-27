@@ -6,25 +6,22 @@ export default class Tutors extends React.Component {
     super(props)
     this.state = {
         tutorlist: [],
-        photos: [],
     }
     this.sortByName = this.sortByName.bind(this)
     this.sortByCity = this.sortByCity.bind(this)
+    this.filterByElvis = this.filterByElvis.bind(this)
+    this.filterByHowe = this.filterByHowe.bind(this)
     }
 
     componentDidMount () {
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(data => this.setState({ tutorlist: data }))
-
-        // fetch('https://jsonplaceholder.typicode.com/photos')
-        // .then(res => res.json())
-        // .then(data => this.setState({ photos: data }))
     }
 
     sortByName () {
       const {tutorlist} = this.state
-      this.setState(tutorlist.sort((a, b) => (a.username > b.username)? 1 : -1))
+      this.setState(tutorlist.sort((a, b) => (a.name > b.name)? 1 : -1))
     }
 
     sortByCity () {
@@ -32,24 +29,33 @@ export default class Tutors extends React.Component {
       this.setState(tutorlist.sort((a, b) => (a.address.city > b.address.city)? 1 : -1))
     }
 
+    filterByElvis = () => {
+      const {tutorlist} = this.state
+      this.setState({tutorlist: tutorlist.filter(a => a.address.city === 'South Elvis')})
+    }
+
+    filterByHowe () {
+      const {tutorlist} = this.state
+      this.setState({tutorlist: tutorlist.filter(a => a.address.city === 'Howemouth')})
+    }
+
     render() {
-        const { tutorlist, photos } = this.state;
-        
+        const { tutorlist } = this.state;
+
         return (
           <div>
             <div>
+            <span>Filter by:</span>
+            <button onClick={this.filterByElvis}>Elvis</button>
+            <button onClick={this.filterByHowe}>Howemouth</button>
             <span>Sort by:</span>
             <button onClick={this.sortByName}>Name</button>
             <button onClick={this.sortByCity}>City</button>
             </div>
           <div className='tutor_div'>
-            {/* {photos.filter(photo => photo.id <=8).map(photo => <div key={photo.id}>
-                <img src={photo.thumbnailUrl} alt="tutor"/>
-                <p>{photo.title}</p>
-                </div>)} */}
-            {tutorlist.filter(tutor => tutor.id <=8).map(tutor => <div key={tutor.id}>
+            {tutorlist.map(tutor => <div key={tutor.id}>
                 <img src={process.env.PUBLIC_URL + '/02.png'} alt="tutor"/>
-                <Link to={`/tutor/${tutor.id}`} className='link'>{tutor.username}</Link>
+                <Link to={`/tutor/${tutor.id}`} className='link'>{tutor.name}</Link>
                 <p>{tutor.email}</p>
                 <p>{tutor.address.city}</p>
               </div>)}

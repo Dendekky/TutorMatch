@@ -2,13 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tutors from './tutorlist';
 
-export default class HomePage extends React.Component {
-    constructor (props) {
-    super(props)
-    }
-
-    render () {
-        return (
+const HomePage = () =>
             <div className='homepage_div'>
                 <div className="homepage_div_child1">
                 <h1>The place where Tutors and Students meet</h1>
@@ -22,6 +16,5 @@ export default class HomePage extends React.Component {
             <Tutors />
             <Link to='/'>See all Tutors</Link>
             </div>
-        )
-    }
-}
+    
+export default HomePage;
