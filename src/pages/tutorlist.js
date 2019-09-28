@@ -23,7 +23,7 @@ export default class Tutors extends React.Component {
       const {tutorlist} = this.state
       this.setState(tutorlist.sort((a, b) => (a.name > b.name)? 1 : -1))
     }
-
+    
     sortByCity () {
       const {tutorlist} = this.state
       this.setState(tutorlist.sort((a, b) => (a.address.city > b.address.city)? 1 : -1))
@@ -43,7 +43,7 @@ export default class Tutors extends React.Component {
         const { tutorlist } = this.state;
 
         return (
-          <div>
+          <div className='tutorlist_div'>
             <div className='filter_sort_div'>
               <span>Filter by:</span>
               <button onClick={this.filterByElvis}>Elvis</button>
@@ -54,10 +54,15 @@ export default class Tutors extends React.Component {
             </div>
             <div className='tutor_div'>
               {tutorlist.map(tutor => <div key={tutor.id}>
-                <img src={process.env.PUBLIC_URL + '/user-photo.png'} alt="tutor"/>
-                <Link to={`/tutor/${tutor.id}`} className='link'>{tutor.name}</Link>
-                <p>{tutor.email}</p>
-                <p>{tutor.address.city}</p>
+                <img src={process.env.PUBLIC_URL + '/user-photo.jpg'} alt="tutor"/>
+                <Link to={`/tutor/${tutor.id}`} className='tutor'>{tutor.name}</Link>
+                <p>City</p>
+                <span>{tutor.address.city}</span>
+                <h4>Students so far</h4>
+                <img className='student_img' src={process.env.PUBLIC_URL + '/student-photo.jpg'} alt="students"/>
+                <img className='student_img' src={process.env.PUBLIC_URL + '/student-photo.jpg'} alt="students"/>
+                <img className='student_img' src={process.env.PUBLIC_URL + '/student-photo.jpg'} alt="students"/>
+                <img className='student_img' src={process.env.PUBLIC_URL + '/student-photo.jpg'} alt="students"/>
               </div>)}
             </div>
           </div>

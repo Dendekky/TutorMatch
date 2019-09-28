@@ -1,10 +1,10 @@
+$click-color: rgb(23, 167, 23);
+$back-color:#d1d0d0;
+$head-color: #e2e2e2;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 code {
@@ -13,9 +13,18 @@ code {
 }
 
 //refactor codes
+.link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  background-color: $back-color;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 32px;
+}
 
 .header_div {
-    background-color: #e4e4e4;
+    background-color: $head-color;
 }
 
 .header_left {
@@ -23,59 +32,95 @@ code {
 }
 
 .header_right {
-    // float: right;
-    display: flex;
-    p {
+    float: right;
+    .span {
         padding-right: 20px;
+        text-decoration: none;
+        color: black;     
+    }
+    .span:active {
+      border: 1px solid grey;
     }
 }
 
+.homepage_div {
+  display: flex;
+  flex-direction: column;
+  .homepage_div_child1 {
+    text-align: center;
+    background-color: $head-color;
+    padding: 8px 0px 60px 0px;
+    p{
+      margin-bottom: 32px;
+    }
+    .link {
+      background-color: $click-color;
+      color: white;
+    }
+}
+  .homepage_div_child2 {
+    text-align: center;
+  }
+  .footer_div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .filter_sort_div {
+  margin-left: 10%;
   span{
-    margin: 0px 4px 0px 4px;
+    margin: 0px 4px 0px 24px;
+  }
+  button {
+    padding: 4px 10px 4px 10px;
+    border: 1px solid #9e9e9e;
+    outline: none;
+  }
+  
+  button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  button:focus{
+    background: $click-color;
   }
 }
 
 .tutor_div {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   div {
-    background-color: #e4e4e4;
+    background-color: $back-color;
     margin: 15px;
-    height: 280px;
-    width: 150px;
-    overflow-wrap: break-word;
-    p {
+    height: 400px;
+    width: 260px;
+    .tutor {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      padding-left: 4px; 
+    }
+    p, h4 {
         padding-left: 4px;
+    }
+    span {
+      margin-left: 4px;
+      background: white;
+      border-radius: 4px;
+      padding: 6px;
+    }
+    .student_img {
+      margin-left: 4px;
+      width: 40px;
+      border-radius: 50%;
     }
   }
 }
 
-.homepage_div {
-    display: flex;
-    flex-direction: column;
-    .homepage_div_child1 {
-      text-align: center;
-      background-color: #e4e4e4;
-      padding: 8px 0px 60px 0px;
-      p{
-        margin-bottom: 32px;
-      }
-      .link {
-        background-color: rgb(23, 167, 23);
-      }
-  }
-  .homepage_div_child2 {
-    text-align: center;
-}
-}
 
-.link {
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  background-color: #e4e4e4;
-  padding: 8px;
-  margin: 32px 360px;
-  border-radius: 4px;
-}
+
