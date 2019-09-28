@@ -12,7 +12,6 @@ code {
     monospace;
 }
 
-//refactor codes
 .link {
   text-decoration: none;
   color: black;
@@ -29,6 +28,9 @@ code {
 
 .header_left {
   display: inline-block;
+  img {
+    width: 150px;
+  }
 }
 
 .header_right {
@@ -70,7 +72,6 @@ code {
 }
 
 .filter_sort_div {
-  margin-left: 10%;
   span{
     margin: 0px 4px 0px 24px;
   }
