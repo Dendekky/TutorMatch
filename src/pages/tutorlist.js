@@ -5,9 +5,7 @@ export default class Tutors extends React.Component {
     super(props)
     this.state = {
         tutorlist: [],
-    }
-    // preserve the initial state in a new object
-     
+      } 
     }
 
     componentDidMount () {
@@ -27,9 +25,9 @@ export default class Tutors extends React.Component {
     }
 
     filterByLocation = (word) => {
-      this.setState(this.baseState)
-      // const {tutorlist} = this.state
-      this.setState((prevState) => ({tutorlist: prevState.tutorlist.filter(a => a.address.city === word)}))
+      fetch('https://jsonplaceholder.typicode.com/users?address.city='+ word)
+        .then(res => res.json())
+        .then(data => this.setState({ tutorlist: data }))
     }
 
     render() {
@@ -41,6 +39,7 @@ export default class Tutors extends React.Component {
               <span>Filter by:</span>
               <button onClick={() => this.filterByLocation('South Elvis')}>Elvis</button>
               <button onClick={() => this.filterByLocation('Howemouth')}>Howemouth</button>
+              <button onClick={() => this.filterByLocation('South Christy')}>Christy</button>
               <span>Sort by:</span>
               <button onClick={this.sortByName}>Name</button>
               <button onClick={this.sortByCity}>City</button>
