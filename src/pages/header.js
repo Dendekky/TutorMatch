@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => <div className='header_div'>
     <div className='header_left'>
-    <h2>TUTORMATCH</h2>
+    <img src={process.env.PUBLIC_URL + '/tutormatch-logo.png'} alt="tutor"/>
     </div>
     <div className='header_right'>
         <p>Become a tutor</p>

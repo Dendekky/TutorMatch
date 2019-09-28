@@ -44,22 +44,22 @@ export default class Tutors extends React.Component {
 
         return (
           <div>
-            <div>
-            <span>Filter by:</span>
-            <button onClick={this.filterByElvis}>Elvis</button>
-            <button onClick={this.filterByHowe}>Howemouth</button>
-            <span>Sort by:</span>
-            <button onClick={this.sortByName}>Name</button>
-            <button onClick={this.sortByCity}>City</button>
+            <div className='filter_sort_div'>
+              <span>Filter by:</span>
+              <button onClick={this.filterByElvis}>Elvis</button>
+              <button onClick={this.filterByHowe}>Howemouth</button>
+              <span>Sort by:</span>
+              <button onClick={this.sortByName}>Name</button>
+              <button onClick={this.sortByCity}>City</button>
             </div>
-          <div className='tutor_div'>
-            {tutorlist.map(tutor => <div key={tutor.id}>
-                <img src={process.env.PUBLIC_URL + '/02.png'} alt="tutor"/>
+            <div className='tutor_div'>
+              {tutorlist.map(tutor => <div key={tutor.id}>
+                <img src={process.env.PUBLIC_URL + '/user-photo.png'} alt="tutor"/>
                 <Link to={`/tutor/${tutor.id}`} className='link'>{tutor.name}</Link>
                 <p>{tutor.email}</p>
                 <p>{tutor.address.city}</p>
               </div>)}
-          </div>
+            </div>
           </div>
         );
       }

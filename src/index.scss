@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+//refactor codes
+
 .header_div {
     background-color: #e4e4e4;
 }
@@ -21,11 +23,17 @@ code {
 }
 
 .header_right {
-    float: right;
+    // float: right;
     display: flex;
     p {
         padding-right: 20px;
     }
+}
+
+.filter_sort_div {
+  span{
+    margin: 0px 4px 0px 4px;
+  }
 }
 
 .tutor_div {
@@ -46,14 +54,28 @@ code {
 .homepage_div {
     display: flex;
     flex-direction: column;
+    .homepage_div_child1 {
+      text-align: center;
+      background-color: #e4e4e4;
+      padding: 8px 0px 60px 0px;
+      p{
+        margin-bottom: 32px;
+      }
+      .link {
+        background-color: rgb(23, 167, 23);
+      }
+  }
+  .homepage_div_child2 {
+    text-align: center;
+}
 }
 
-.homepage_div_child1 {
-    text-align: center;
-    background-color: #e4e4e4;
-    padding: 8px 0px 20px 0px;
-}
-
-.homepage_div_child2 {
-    text-align: center;
+.link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  background-color: #e4e4e4;
+  padding: 8px;
+  margin: 32px 360px;
+  border-radius: 4px;
 }
