@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default class Tutors extends React.Component {
     constructor (props) {
@@ -7,10 +6,8 @@ export default class Tutors extends React.Component {
     this.state = {
         tutorlist: [],
     }
-    this.sortByName = this.sortByName.bind(this)
-    this.sortByCity = this.sortByCity.bind(this)
-    this.filterByElvis = this.filterByElvis.bind(this)
-    this.filterByHowe = this.filterByHowe.bind(this)
+    // preserve the initial state in a new object
+     
     }
 
     componentDidMount () {
@@ -19,24 +16,20 @@ export default class Tutors extends React.Component {
         .then(data => this.setState({ tutorlist: data }))
     }
 
-    sortByName () {
+    sortByName = () => {
       const {tutorlist} = this.state
       this.setState(tutorlist.sort((a, b) => (a.name > b.name)? 1 : -1))
     }
     
-    sortByCity () {
+    sortByCity = () => {
       const {tutorlist} = this.state
       this.setState(tutorlist.sort((a, b) => (a.address.city > b.address.city)? 1 : -1))
     }
 
-    filterByElvis = () => {
-      const {tutorlist} = this.state
-      this.setState({tutorlist: tutorlist.filter(a => a.address.city === 'South Elvis')})
-    }
-
-    filterByHowe () {
-      const {tutorlist} = this.state
-      this.setState({tutorlist: tutorlist.filter(a => a.address.city === 'Howemouth')})
+    filterByLocation = (word) => {
+      this.setState(this.baseState)
+      // const {tutorlist} = this.state
+      this.setState((prevState) => ({tutorlist: prevState.tutorlist.filter(a => a.address.city === word)}))
     }
 
     render() {
@@ -45,9 +38,9 @@ export default class Tutors extends React.Component {
         return (
           <div className='tutorlist_div'>
             <div className='filter_sort_div'>
-              <span className='fliter_div'>Filter by:</span>
-              <button onClick={this.filterByElvis}>Elvis</button>
-              <button onClick={this.filterByHowe}>Howemouth</button>
+              <span>Filter by:</span>
+              <button onClick={() => this.filterByLocation('South Elvis')}>Elvis</button>
+              <button onClick={() => this.filterByLocation('Howemouth')}>Howemouth</button>
               <span>Sort by:</span>
               <button onClick={this.sortByName}>Name</button>
               <button onClick={this.sortByCity}>City</button>
@@ -55,7 +48,7 @@ export default class Tutors extends React.Component {
             <div className='tutor_div'>
               {tutorlist.map(tutor => <div key={tutor.id}>
                 <img src={process.env.PUBLIC_URL + '/user-photo.jpg'} alt="tutor"/>
-                <Link to={`/tutor/${tutor.id}`} className='tutor'>{tutor.name}</Link>
+                <p className='tutor'>{tutor.name}</p>
                 <p>City</p>
                 <span>{tutor.address.city}</span>
                 <h4>Students so far</h4>
