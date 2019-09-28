@@ -45,7 +45,7 @@ export default class Tutors extends React.Component {
         return (
           <div className='tutorlist_div'>
             <div className='filter_sort_div'>
-              <span>Filter by:</span>
+              <span className='fliter_div'>Filter by:</span>
               <button onClick={this.filterByElvis}>Elvis</button>
               <button onClick={this.filterByHowe}>Howemouth</button>
               <span>Sort by:</span>

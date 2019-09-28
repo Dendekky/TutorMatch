@@ -24,19 +24,20 @@ code {
 
 .header_div {
     background-color: $head-color;
+    padding: 10px 0px 10px 0px;
 }
 
 .header_left {
   display: inline-block;
   img {
-    width: 150px;
+    width: 180px;
   }
 }
 
 .header_right {
     float: right;
     .span {
-        padding-right: 20px;
+        padding-right: 6px;
         text-decoration: none;
         color: black;     
     }
@@ -72,6 +73,7 @@ code {
 }
 
 .filter_sort_div {
+  display: flex;
   span{
     margin: 0px 4px 0px 24px;
   }
