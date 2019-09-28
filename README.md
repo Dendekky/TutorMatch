@@ -1,8 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## `hosting`
+
+The hosted app can be viewed at http://matchtutor.netlify.com
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+To install the dependencies in package.json necessary for the app to run
 
 ### `npm start`
 
